@@ -9,9 +9,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input, Textarea } from '@/components/ui/input'
 import { profile } from '@/data/profile'
 
-// FormSubmit delivers submissions to this inbox — no account or API keys needed.
-// The first submission triggers a one-time activation email to the address.
-const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`
+// FormSubmit alias for chaudaki08@gmail.com — hides the raw address from
+// page source so scrapers can't harvest it.
+const FORM_ENDPOINT = 'https://formsubmit.co/ajax/98446885b2e9ce755739816206aa9f4a'
 
 const WHATSAPP_URL =
   'https://wa.me/919820307256?text=' +
