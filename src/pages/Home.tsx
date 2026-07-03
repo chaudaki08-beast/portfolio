@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { SEO } from '@/components/SEO'
 import { Hero } from '@/components/home/Hero'
+import { Advantages } from '@/components/home/Advantages'
 import { Process } from '@/components/home/Process'
 import { Testimonials } from '@/components/home/Testimonials'
 import { GithubActivity } from '@/components/home/GithubActivity'
@@ -26,6 +27,7 @@ export default function Home() {
         path="/"
       />
       <Hero />
+      <Advantages />
 
       {/* Featured projects */}
       <section className="section-pad">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Mail, MapPin } from 'lucide-react'
+import { ArrowRight, Download, Mail, MapPin, Phone } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa6'
 import { profile, stats } from '@/data/profile'
 import { heroTech } from '@/data/skills'
@@ -40,20 +40,25 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display text-4xl leading-[1.15] font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl"
+            className="font-display text-4xl leading-[1.18] font-extrabold tracking-tight text-white sm:text-5xl lg:text-[3.4rem]"
           >
-            Building <span className="text-brand-500">Production-Grade</span> Software, AI Products
-            & <span className="text-brand-500">Enterprise SaaS</span>
+            Hey There,
+            <br />
+            I'm <span className="text-brand-500">Ganesh Chaudaki</span>,
+            <br />
+            A Passionate Software Engineer Based in Mumbai, India
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-xl text-base text-white/70 sm:text-lg">
-            {profile.summary}
+            I design and build production-grade software — enterprise SaaS platforms, AI-powered
+            products, and full-stack web applications with clean architecture and premium visual
+            impact.
           </motion.p>
 
           <motion.div variants={item} className="mt-8 flex flex-wrap items-center gap-4">
             <Link to="/contact">
               <Button size="lg">
-                Let's Work Together <ArrowRight className="h-4 w-4" />
+                Hire Me <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
             <Link to="/projects">
@@ -69,12 +74,25 @@ export function Hero() {
           </motion.div>
 
           {/* Stats */}
-          <motion.div
-            variants={item}
-            className="mt-14 grid max-w-lg grid-cols-2 gap-x-10 gap-y-8 sm:mt-20"
-          >
-            {stats.map((stat) => (
-              <div key={stat.label}>
+          <motion.div variants={item} className="mt-14 grid max-w-lg grid-cols-2 gap-4">
+            {stats.slice(0, 2).map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[22px] border border-white/10 bg-card px-7 py-6"
+              >
+                <p className="font-display text-4xl font-extrabold text-white sm:text-5xl">
+                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="mt-2 text-xs font-bold tracking-widest text-white/60 uppercase">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+            {stats.slice(2).map((stat) => (
+              <div
+                key={stat.label}
+                className="rounded-[22px] border border-white/10 bg-card px-7 py-6"
+              >
                 <p className="font-display text-4xl font-extrabold text-white sm:text-5xl">
                   <AnimatedCounter value={stat.value} suffix={stat.suffix} />
                 </p>
@@ -127,24 +145,21 @@ export function Hero() {
             </div>
 
             {/* Info */}
-            <div className="mt-6 text-center">
+            <div className="mt-6 space-y-2.5 text-center">
               <p className="font-display text-xl font-bold text-white">{profile.name}</p>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/50">
-                {profile.tagline}
+              <p className="flex items-center justify-center gap-2 text-sm text-white/60">
+                <Mail className="h-4 w-4 text-brand-500" /> {profile.email}
               </p>
-              <p className="mt-3 inline-flex items-center gap-1.5 text-xs text-white/50">
-                <MapPin className="h-3.5 w-3.5 text-brand-500" /> {profile.location} · Working
-                worldwide
+              <p className="flex items-center justify-center gap-2 text-sm text-white/60">
+                <MapPin className="h-4 w-4 text-brand-500" /> {profile.location}
               </p>
+              <a
+                href="tel:+919820307256"
+                className="flex items-center justify-center gap-2 text-sm font-bold text-white transition-colors hover:text-brand-400"
+              >
+                <Phone className="h-4 w-4 text-brand-500" /> +91 9820307256
+              </a>
             </div>
-
-            {/* Email pill */}
-            <a
-              href={`mailto:${profile.email}`}
-              className="mt-5 flex items-center justify-center gap-2 rounded-full border border-brand-500/50 bg-brand-500/10 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-brand-500 hover:text-white"
-            >
-              <Mail className="h-4 w-4" /> {profile.email}
-            </a>
 
             {/* Socials */}
             <div className="mt-5 flex items-center justify-center gap-3">
@@ -167,6 +182,13 @@ export function Hero() {
                 <FaLinkedin className="h-4.5 w-4.5" />
               </a>
             </div>
+
+            {/* Hire me */}
+            <Link to="/contact" className="mt-6 block">
+              <Button className="w-full" size="lg">
+                Hire Me
+              </Button>
+            </Link>
           </div>
         </motion.aside>
       </motion.div>

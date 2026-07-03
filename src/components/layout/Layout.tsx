@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { ScrollProgress } from '@/components/layout/ScrollProgress'
+import { FloatingButtons } from '@/components/layout/FloatingButtons'
 import { AnimatedBackground } from '@/components/AnimatedBackground'
 
 export function Layout() {
@@ -26,6 +27,7 @@ export function Layout() {
       <main id="main-content" className="flex-1 pt-16">
         <Outlet />
       </main>
+      <FloatingButtons />
       <Footer />
     </div>
   )

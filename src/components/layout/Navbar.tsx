@@ -73,7 +73,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2">
           <Link to="/contact" className="hidden md:block">
-            <Button size="sm">Contact Me</Button>
+            <Button size="sm">Hire Me</Button>
           </Link>
           <Button
             variant="ghost"

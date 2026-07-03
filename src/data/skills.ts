@@ -122,6 +122,20 @@ export const skillCategories: SkillCategory[] = [
   },
 ]
 
+export interface Advantage extends Skill {
+  percent: number
+}
+
+/** Proficiency highlights for the "My Advantages" strip on Home. */
+export const advantages: Advantage[] = [
+  { name: 'JavaScript', icon: SiJavascript, percent: 92 },
+  { name: 'PHP', icon: SiPhp, percent: 90 },
+  { name: 'React JS', icon: SiReact, percent: 88 },
+  { name: 'MySQL', icon: SiMysql, percent: 90 },
+  { name: 'Python', icon: SiPython, percent: 85 },
+  { name: 'AI / LLM APIs', icon: RiOpenaiFill, percent: 87 },
+]
+
 export const heroTech: Skill[] = [
   { name: 'React', icon: SiReact },
   { name: 'TypeScript', icon: SiTypescript },

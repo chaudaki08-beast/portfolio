@@ -11,6 +11,9 @@ export function ProjectCard({ project }: { project: Project }) {
         <ProjectVisual project={project} laptop />
       </Link>
       <div className="flex flex-1 flex-col px-1 pt-5">
+        <p className="mb-1.5 text-[11px] font-bold tracking-[0.18em] text-brand-500 uppercase">
+          Featured Project
+        </p>
         <div className="flex items-start justify-between gap-2">
           <h3 className="font-display text-lg font-bold text-white">
             <Link
