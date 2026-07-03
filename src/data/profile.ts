@@ -6,7 +6,7 @@ export const profile = {
   summary:
     'Software Engineer specializing in Full-Stack Development, AI applications, enterprise software, and SaaS products. I design, build, and ship complete systems: web platforms, desktop applications, AI pipelines, and everything in between.',
   email: 'chaudaki08@gmail.com',
-  location: 'India',
+  location: 'Mumbai, India',
   // TODO: update with your real profile URLs
   github: 'https://github.com/chaudaki08-beast',
   linkedin: 'https://www.linkedin.com/in/ganesh-chaudaki',
@@ -32,8 +32,8 @@ export const profile = {
 }
 
 export const stats = [
-  { label: 'Years of Experience', value: 5, suffix: '+' },
-  { label: 'Projects Delivered', value: 60, suffix: '+' },
+  { label: 'Years of Experience', value: 3, suffix: '+' },
+  { label: 'Projects Delivered', value: 50, suffix: '+' },
   { label: 'Technologies Mastered', value: 25, suffix: '+' },
   { label: 'Happy Clients', value: 40, suffix: '+' },
 ]

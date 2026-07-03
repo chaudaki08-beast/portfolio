@@ -38,7 +38,6 @@ export const clientWork: ClientWork[] = [
 ]
 
 // ---- Certifications ----
-// TODO: replace with your real certifications.
 export interface Certification {
   title: string
   issuer: string
@@ -47,9 +46,9 @@ export interface Certification {
 }
 
 export const certifications: Certification[] = [
-  { title: 'Your Certification Title', issuer: 'Issuing Organization', year: '2024' },
-  { title: 'Your Certification Title', issuer: 'Issuing Organization', year: '2023' },
-  { title: 'Your Certification Title', issuer: 'Issuing Organization', year: '2022' },
+  { title: 'Data Analytics Job Simulation', issuer: 'Deloitte AU (Forage)', year: 'Jan 2026' },
+  { title: 'Salesforce Trailblazer', issuer: 'Salesforce', year: 'Jun 2020' },
+  { title: 'Master of Computer Applications (MCA)', issuer: 'Mumbai University', year: 'Degree' },
 ]
 
 // ---- Tech learning timeline ----

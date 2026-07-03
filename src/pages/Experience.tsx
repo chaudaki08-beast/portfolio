@@ -114,7 +114,7 @@ export default function Experience() {
           <SectionHeading
             eyebrow="Certifications"
             title="Credentials"
-            description="Update these in src/data/misc.ts with your real certifications."
+            description="Degrees and certifications backing the hands-on experience."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {certifications.map((cert, i) => (

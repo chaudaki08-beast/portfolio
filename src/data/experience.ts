@@ -1,4 +1,3 @@
-// TODO: refine dates, company names, and achievements with your real history.
 export interface ExperienceItem {
   period: string
   role: string
@@ -9,45 +8,46 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
   {
-    period: '2024 — Present',
-    role: 'Independent Software Engineer & Product Builder',
-    company: 'Cyberweb Software',
+    period: 'Nov 2023 — Present',
+    role: 'Software Developer',
+    company: 'CGS Infotech Solutions · Mumbai (Hybrid)',
     achievements: [
-      'Shipped HotelEye AI — an AI vision platform monitoring hotel CCTV with Gemini Vision, cutting manual monitoring effort while keeping footage private.',
-      'Built a .NET 9 WPF desktop tool that decrypts and migrates WhatsApp backups between iPhone and Android.',
-      'Launched InnDesignAI and AITaxMD, two AI SaaS products with guest trials, conversion funnels, and admin analytics.',
+      'Design and develop client-facing web applications using React.js and PHP for high-traffic environments.',
+      'Lead the design and integration of RESTful APIs and third-party services to improve platform reliability.',
+      'Developed 4+ NFC-powered products including review systems, booking tools, and automated chatbots.',
+      'Collaborate in Agile sprints, performing code reviews and maintaining rigorous technical documentation.',
     ],
-    tech: ['Python', 'FastAPI', 'React', '.NET 9', 'PostgreSQL', 'Gemini', 'OpenAI'],
+    tech: ['React', 'PHP', 'MySQL', 'REST APIs', 'NFC'],
   },
   {
-    period: '2022 — 2024',
-    role: 'Full-Stack Developer',
-    company: 'Freelance & Agency Projects',
-    achievements: [
-      'Delivered an enterprise ISP & Cable Operator Management System handling CRM, billing, complaints, and technician dispatch for providers.',
-      'Built Universal CMS — a cPanel-ready website builder with drag-and-drop editing, themes, blogging, and e-commerce.',
-      'Shipped 20+ WordPress sites and 15+ hand-coded HTML sites for clients across hospitality, retail, and services.',
-    ],
-    tech: ['PHP', 'MySQL', 'JavaScript', 'Bootstrap', 'WordPress'],
-  },
-  {
-    period: '2020 — 2022',
+    period: 'Apr 2023 — Oct 2023',
     role: 'Web Developer',
-    company: 'Early Client Work',
+    company: 'My Country Mobile · Mumbai',
     achievements: [
-      'Mastered the LAMP stack building custom CMS projects and business websites end to end.',
-      'Learned deployment and server management across cPanel, Plesk, and Hostinger environments.',
-      'Built a foundation in responsive design, SEO, and performance optimization that carries through every project since.',
+      'Spearheaded front-end development for customer-facing telecom and VoIP portals used by thousands of users.',
+      'Built and maintained complex API integrations supporting real-time communication and VoIP platform stability.',
+      'Optimized front-end performance and page load times, contributing to measurable gains in user engagement.',
     ],
-    tech: ['PHP', 'HTML5', 'CSS3', 'JavaScript', 'MySQL'],
+    tech: ['JavaScript', 'React', 'REST APIs', 'VoIP'],
+  },
+  {
+    period: 'Jan 2023 — Mar 2023',
+    role: 'Web Developer',
+    company: 'Anush Enterprises · Mumbai',
+    achievements: [
+      'Developed responsive business websites and administrative modules using JavaScript and HTML5.',
+      'Managed end-to-end project lifecycles from requirements gathering to final deployment.',
+    ],
+    tech: ['JavaScript', 'HTML5', 'CSS3'],
   },
 ]
 
 export const education = [
   {
-    period: '2016 — 2020',
-    degree: 'Bachelor of Engineering', // TODO: update with your real degree and institution
-    institution: 'Your University Name',
-    detail: 'Focused on computer science fundamentals, algorithms, and software engineering.',
+    period: 'Postgraduate Degree',
+    degree: 'Master of Computer Applications (MCA)',
+    institution: 'Mumbai University',
+    detail:
+      'Postgraduate degree focused on software engineering, databases, and application development.',
   },
 ]

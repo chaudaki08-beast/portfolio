@@ -78,7 +78,7 @@ export default function About() {
                   <div className="flex items-center gap-3">
                     <Hammer className="h-4 w-4 text-brand-500" />
                     <dd className="text-zinc-700 dark:text-zinc-300">
-                      60+ projects delivered end to end
+                      50+ projects delivered end to end
                     </dd>
                   </div>
                 </dl>
