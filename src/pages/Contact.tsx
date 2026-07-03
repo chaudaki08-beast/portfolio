@@ -63,8 +63,11 @@ export default function Contact() {
           email: data.get('email'),
           subject: data.get('subject') || 'Portfolio inquiry',
           message: data.get('message'),
-          _subject: `Portfolio inquiry from ${data.get('name')}`,
-          _template: 'table',
+          _subject: `New inquiry from ${data.get('name')} — ${data.get('subject') || 'Portfolio'}`,
+          _template: 'box',
+          _replyto: data.get('email'),
+          _autoresponse:
+            "Hi! Thanks for reaching out through my portfolio. I've received your message and will get back to you within 24 hours. — Ganesh Chaudaki",
           _captcha: 'false',
         }),
       })
