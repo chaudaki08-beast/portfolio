@@ -1,7 +1,6 @@
 import { useRef, useState, type FormEvent } from 'react'
-import emailjs from '@emailjs/browser'
 import { CheckCircle2, Download, Loader2, Mail, Send, XCircle } from 'lucide-react'
-import { FaGithub, FaLinkedin } from 'react-icons/fa6'
+import { FaGithub, FaLinkedin, FaWhatsapp } from 'react-icons/fa6'
 import { SEO } from '@/components/SEO'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Reveal } from '@/components/Reveal'
@@ -10,11 +9,13 @@ import { Card, CardContent } from '@/components/ui/card'
 import { Input, Textarea } from '@/components/ui/input'
 import { profile } from '@/data/profile'
 
-// TODO: create a free EmailJS account (https://www.emailjs.com), add a service +
-// template, and put the IDs in a .env file (see .env.example).
-const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined
-const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined
-const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined
+// FormSubmit delivers submissions to this inbox — no account or API keys needed.
+// The first submission triggers a one-time activation email to the address.
+const FORM_ENDPOINT = `https://formsubmit.co/ajax/${profile.email}`
+
+const WHATSAPP_URL =
+  'https://wa.me/919820307256?text=' +
+  encodeURIComponent("Hi Ganesh, I found your portfolio and I'd like to discuss a project.")
 
 type Status = 'idle' | 'sending' | 'success' | 'error'
 
@@ -44,24 +45,36 @@ export default function Contact() {
     e.preventDefault()
     if (!formRef.current) return
 
-    const fieldErrors = validate(new FormData(formRef.current))
+    const data = new FormData(formRef.current)
+    const fieldErrors = validate(data)
     setErrors(fieldErrors)
     if (Object.keys(fieldErrors).length > 0) return
 
-    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
-      // EmailJS not configured yet — fall back to a mailto link so the form still works.
-      const data = new FormData(formRef.current)
-      const subject = encodeURIComponent(`Portfolio inquiry from ${data.get('name')}`)
-      const body = encodeURIComponent(`${data.get('message')}\n\n— ${data.get('name')} (${data.get('email')})`)
-      window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`
-      return
-    }
+    // Honeypot filled in → silently drop (bot)
+    if (String(data.get('_honey') ?? '') !== '') return
 
     setStatus('sending')
     try {
-      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, { publicKey: PUBLIC_KEY })
-      setStatus('success')
-      formRef.current.reset()
+      const res = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          name: data.get('name'),
+          email: data.get('email'),
+          subject: data.get('subject') || 'Portfolio inquiry',
+          message: data.get('message'),
+          _subject: `Portfolio inquiry from ${data.get('name')}`,
+          _template: 'table',
+          _captcha: 'false',
+        }),
+      })
+      const json = await res.json()
+      if (res.ok && (json.success === 'true' || json.success === true)) {
+        setStatus('success')
+        formRef.current.reset()
+      } else {
+        setStatus('error')
+      }
     } catch {
       setStatus('error')
     }
@@ -88,11 +101,20 @@ export default function Contact() {
               <Card className="hover:translate-y-0">
                 <CardContent className="p-6 sm:p-8">
                   <form ref={formRef} onSubmit={handleSubmit} noValidate className="space-y-5">
+                    {/* Honeypot — hidden from humans, catches bots */}
+                    <input
+                      type="text"
+                      name="_honey"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      className="hidden"
+                      aria-hidden="true"
+                    />
                     <div className="grid gap-5 sm:grid-cols-2">
                       <div>
                         <label
                           htmlFor="name"
-                          className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                          className="mb-2 block text-sm font-medium text-white/80"
                         >
                           Name
                         </label>
@@ -105,7 +127,7 @@ export default function Contact() {
                           aria-describedby={errors.name ? 'name-error' : undefined}
                         />
                         {errors.name && (
-                          <p id="name-error" className="mt-1.5 text-sm text-red-500" role="alert">
+                          <p id="name-error" className="mt-1.5 text-sm text-brand-400" role="alert">
                             {errors.name}
                           </p>
                         )}
@@ -113,7 +135,7 @@ export default function Contact() {
                       <div>
                         <label
                           htmlFor="email"
-                          className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                          className="mb-2 block text-sm font-medium text-white/80"
                         >
                           Email
                         </label>
@@ -127,7 +149,7 @@ export default function Contact() {
                           aria-describedby={errors.email ? 'email-error' : undefined}
                         />
                         {errors.email && (
-                          <p id="email-error" className="mt-1.5 text-sm text-red-500" role="alert">
+                          <p id="email-error" className="mt-1.5 text-sm text-brand-400" role="alert">
                             {errors.email}
                           </p>
                         )}
@@ -136,16 +158,16 @@ export default function Contact() {
                     <div>
                       <label
                         htmlFor="subject"
-                        className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="mb-2 block text-sm font-medium text-white/80"
                       >
-                        Subject <span className="text-zinc-400">(optional)</span>
+                        Subject <span className="text-white/40">(optional)</span>
                       </label>
                       <Input id="subject" name="subject" placeholder="What's this about?" />
                     </div>
                     <div>
                       <label
                         htmlFor="message"
-                        className="mb-2 block text-sm font-medium text-zinc-700 dark:text-zinc-300"
+                        className="mb-2 block text-sm font-medium text-white/80"
                       >
                         Message
                       </label>
@@ -157,7 +179,7 @@ export default function Contact() {
                         aria-describedby={errors.message ? 'message-error' : undefined}
                       />
                       {errors.message && (
-                        <p id="message-error" className="mt-1.5 text-sm text-red-500" role="alert">
+                        <p id="message-error" className="mt-1.5 text-sm text-brand-400" role="alert">
                           {errors.message}
                         </p>
                       )}
@@ -177,14 +199,14 @@ export default function Contact() {
 
                     <div aria-live="polite">
                       {status === 'success' && (
-                        <p className="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                        <p className="flex items-center gap-2 text-sm font-medium text-emerald-400">
                           <CheckCircle2 className="h-4 w-4" /> Message sent! I'll get back to you soon.
                         </p>
                       )}
                       {status === 'error' && (
-                        <p className="flex items-center gap-2 text-sm font-medium text-red-500">
+                        <p className="flex items-center gap-2 text-sm font-medium text-brand-400">
                           <XCircle className="h-4 w-4" /> Something went wrong. Please email me
-                          directly at {profile.email}.
+                          directly at {profile.email} or use WhatsApp.
                         </p>
                       )}
                     </div>
@@ -196,17 +218,28 @@ export default function Contact() {
             {/* Direct channels */}
             <Reveal delay={0.1}>
               <div className="space-y-4">
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block">
+                  <Card className="border-[#25d366]/30 hover:border-[#25d366]/60 hover:shadow-[0_10px_35px_rgba(37,211,102,0.12)]">
+                    <CardContent className="flex items-center gap-4 p-5">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#25d366]/15 text-[#25d366]">
+                        <FaWhatsapp className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="font-bold text-white">WhatsApp</p>
+                        <p className="text-sm text-white/60">Chat directly — fastest reply</p>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </a>
                 <a href={`mailto:${profile.email}`} className="block">
                   <Card>
                     <CardContent className="flex items-center gap-4 p-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
                         <Mail className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-white">Email</p>
-                        <p className="text-sm break-all text-zinc-600 dark:text-zinc-400">
-                          {profile.email}
-                        </p>
+                        <p className="font-bold text-white">Email</p>
+                        <p className="text-sm break-all text-white/60">{profile.email}</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -214,12 +247,12 @@ export default function Contact() {
                 <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="block">
                   <Card>
                     <CardContent className="flex items-center gap-4 p-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
                         <FaLinkedin className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-white">LinkedIn</p>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">Connect with me</p>
+                        <p className="font-bold text-white">LinkedIn</p>
+                        <p className="text-sm text-white/60">Connect with me</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -227,12 +260,12 @@ export default function Contact() {
                 <a href={profile.github} target="_blank" rel="noopener noreferrer" className="block">
                   <Card>
                     <CardContent className="flex items-center gap-4 p-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
                         <FaGithub className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-white">GitHub</p>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">See my code</p>
+                        <p className="font-bold text-white">GitHub</p>
+                        <p className="text-sm text-white/60">See my code</p>
                       </div>
                     </CardContent>
                   </Card>
@@ -240,12 +273,12 @@ export default function Contact() {
                 <a href={profile.resumeUrl} download className="block">
                   <Card>
                     <CardContent className="flex items-center gap-4 p-5">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand-500/10 text-brand-400">
                         <Download className="h-5 w-5" />
                       </div>
                       <div>
-                        <p className="font-medium text-zinc-900 dark:text-white">Resume</p>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400">Download PDF</p>
+                        <p className="font-bold text-white">Resume</p>
+                        <p className="text-sm text-white/60">Download PDF</p>
                       </div>
                     </CardContent>
                   </Card>

@@ -27,19 +27,12 @@ npm run preview  # preview the production build
 
 ## Configuration
 
-### Contact form (EmailJS)
+### Contact form (FormSubmit)
 
-1. Create a free account at [emailjs.com](https://www.emailjs.com)
-2. Add an email service and a template with `name`, `email`, `subject`, `message` fields
-3. Copy `.env.example` to `.env` and fill in your IDs:
-
-```
-VITE_EMAILJS_SERVICE_ID=...
-VITE_EMAILJS_TEMPLATE_ID=...
-VITE_EMAILJS_PUBLIC_KEY=...
-```
-
-Until configured, the form opens the visitor's mail client instead.
+The form posts to [FormSubmit](https://formsubmit.co)'s AJAX endpoint and delivers
+submissions to the email in `src/data/profile.ts` — no account or API keys required.
+The very first submission triggers a one-time **activation email** to that address;
+click the link in it once and the form is live. Includes a honeypot field for spam.
 
 ### Personalizing content
 
