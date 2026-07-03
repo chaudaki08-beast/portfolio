@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, Moon, Sun, X } from 'lucide-react'
-import { useTheme } from '@/context/ThemeContext'
+import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -13,11 +12,9 @@ const links = [
   { to: '/experience', label: 'Experience' },
   { to: '/projects', label: 'Projects' },
   { to: '/services', label: 'Services' },
-  { to: '/contact', label: 'Contact' },
 ]
 
 export function Navbar() {
-  const { theme, toggleTheme } = useTheme()
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -40,7 +37,7 @@ export function Navbar() {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled ? 'glass shadow-lg shadow-black/5' : 'bg-transparent',
+        scrolled ? 'border-b border-white/10 bg-surface-2/90 backdrop-blur-xl' : 'bg-transparent',
       )}
     >
       <nav
@@ -49,10 +46,10 @@ export function Navbar() {
       >
         <Link
           to="/"
-          className="font-display text-lg font-bold text-zinc-900 dark:text-white"
+          className="font-display text-lg font-bold text-white"
           onClick={() => setOpen(false)}
         >
-          Ganesh<span className="text-gradient">.dev</span>
+          Ganesh<span className="text-brand-500">.dev</span>
         </Link>
 
         {/* Desktop links */}
@@ -64,9 +61,7 @@ export function Navbar() {
                 className={({ isActive }) =>
                   cn(
                     'rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-                    isActive
-                      ? 'text-brand-600 dark:text-brand-300'
-                      : 'text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white',
+                    isActive ? 'text-brand-500' : 'text-white/70 hover:text-white',
                   )
                 }
               >
@@ -77,14 +72,9 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={toggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-          >
-            {theme === 'dark' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
+          <Link to="/contact" className="hidden md:block">
+            <Button size="sm">Contact Me</Button>
+          </Link>
           <Button
             variant="ghost"
             size="icon"
@@ -106,10 +96,10 @@ export function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.25 }}
-            className="glass overflow-hidden border-t md:hidden"
+            className="overflow-hidden border-t border-white/10 bg-surface-2/95 backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-1 px-4 py-4">
-              {links.map((link) => (
+              {[...links, { to: '/contact', label: 'Contact' }].map((link) => (
                 <li key={link.to}>
                   <NavLink
                     to={link.to}
@@ -118,8 +108,8 @@ export function Navbar() {
                       cn(
                         'block rounded-lg px-4 py-3 text-base font-medium transition-colors',
                         isActive
-                          ? 'bg-brand-500/10 text-brand-600 dark:text-brand-300'
-                          : 'text-zinc-700 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-zinc-800/60',
+                          ? 'bg-brand-500/10 text-brand-400'
+                          : 'text-white/75 hover:bg-white/5 hover:text-white',
                       )
                     }
                   >

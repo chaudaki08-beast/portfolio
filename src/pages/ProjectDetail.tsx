@@ -66,9 +66,9 @@ export default function ProjectDetail() {
           </Reveal>
 
           {/* Preview + gallery */}
-          <Reveal delay={0.1} className="mt-10">
-            <ProjectVisual project={project} className="aspect-[21/10] w-full" />
-            <div className="mt-3 grid grid-cols-3 gap-3">
+          <Reveal delay={0.1} className="group mt-10">
+            <ProjectVisual project={project} laptop />
+            <div className="mt-6 grid grid-cols-3 gap-3">
               <ProjectVisual project={project} variant={1} className="aspect-video" />
               <ProjectVisual project={project} variant={2} className="aspect-video" />
               <ProjectVisual project={project} variant={1} className="aspect-video" />

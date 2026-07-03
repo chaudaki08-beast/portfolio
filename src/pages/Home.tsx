@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { SEO } from '@/components/SEO'
 import { Hero } from '@/components/home/Hero'
+import { Process } from '@/components/home/Process'
 import { Testimonials } from '@/components/home/Testimonials'
 import { GithubActivity } from '@/components/home/GithubActivity'
 import { SectionHeading } from '@/components/SectionHeading'
@@ -11,7 +12,7 @@ import { ProjectCard } from '@/components/ProjectCard'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { profile, stats } from '@/data/profile'
+import { profile } from '@/data/profile'
 import { projects } from '@/data/projects'
 import { services } from '@/data/services'
 import { clientWork, upcomingPosts } from '@/data/misc'
@@ -25,22 +26,6 @@ export default function Home() {
         path="/"
       />
       <Hero />
-
-      {/* Stats */}
-      <section className="section-pad !py-12" aria-label="Career statistics">
-        <div className="container-tight grid grid-cols-2 gap-4 md:grid-cols-4">
-          {stats.map((stat, i) => (
-            <Reveal key={stat.label} delay={i * 0.08}>
-              <div className="glass rounded-2xl p-6 text-center">
-                <p className="font-display text-3xl font-bold text-gradient sm:text-4xl">
-                  <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-400">{stat.label}</p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       {/* Featured projects */}
       <section className="section-pad">
@@ -139,6 +124,7 @@ export default function Home() {
         </div>
       </section>
 
+      <Process />
       <Testimonials />
       <GithubActivity />
 

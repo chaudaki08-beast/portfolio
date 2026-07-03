@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#09090b" />
+    <meta name="theme-color" content="#ff184e" />
 
     <!-- Primary SEO -->
     <title>Ganesh Chaudaki — Software Engineer | Full-Stack, AI & SaaS</title>
@@ -43,7 +43,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&family=Encode+Sans+Condensed:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
 
@@ -71,16 +71,6 @@
       }
     </script>
 
-    <script>
-      // Apply saved theme before first paint to avoid a flash of the wrong theme.
-      ;(function () {
-        try {
-          var t = localStorage.getItem('theme')
-          var dark = t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
-          document.documentElement.classList.toggle('dark', dark)
-        } catch (e) {}
-      })()
-    </script>
   </head>
   <body>
     <div id="root"></div>

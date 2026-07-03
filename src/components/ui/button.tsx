@@ -3,18 +3,16 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
+  'inline-flex items-center justify-center gap-2 rounded-xl font-bold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 disabled:pointer-events-none disabled:opacity-50 cursor-pointer',
   {
     variants: {
       variant: {
         default:
-          'bg-gradient-to-r from-brand-600 to-brand-500 text-white shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:brightness-110',
-        secondary:
-          'glass text-zinc-800 hover:bg-white/90 dark:text-zinc-100 dark:hover:bg-zinc-800/80',
+          'bg-brand-500 text-white shadow-[0_10px_35px_rgba(255,24,78,0.25)] hover:bg-brand-600 hover:shadow-[0_10px_40px_rgba(255,24,78,0.4)]',
+        secondary: 'border border-white/15 bg-white/5 text-white hover:bg-white/10',
         outline:
-          'border border-zinc-300 bg-transparent text-zinc-800 hover:border-brand-500 hover:text-brand-600 dark:border-zinc-700 dark:text-zinc-100 dark:hover:border-brand-400 dark:hover:text-brand-300',
-        ghost:
-          'text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800/70 dark:hover:text-white',
+          'border border-white/20 bg-transparent text-white hover:border-brand-500 hover:text-brand-400',
+        ghost: 'text-white/70 hover:bg-white/5 hover:text-white',
       },
       size: {
         default: 'h-11 px-6 text-sm',

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Quote, Star } from 'lucide-react'
 import { testimonials } from '@/data/misc'
 import { SectionHeading } from '@/components/SectionHeading'
 import { Button } from '@/components/ui/button'
@@ -22,7 +22,7 @@ export function Testimonials() {
     <section className="section-pad">
       <div className="container-tight">
         <SectionHeading
-          eyebrow="Testimonials"
+          eyebrow="Trusted by Clients"
           title="What clients say"
           description="Feedback from the people I've built for."
         />
@@ -31,8 +31,8 @@ export function Testimonials() {
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
         >
-          <div className="glass relative overflow-hidden rounded-2xl p-8 sm:p-12">
-            <Quote className="absolute top-6 left-6 h-10 w-10 text-brand-500/20" aria-hidden="true" />
+          <div className="relative overflow-hidden rounded-[26px] border border-white/10 bg-card p-8 sm:p-12">
+            <Quote className="absolute top-6 left-6 h-10 w-10 text-brand-500/25" aria-hidden="true" />
             <AnimatePresence mode="wait">
               <motion.blockquote
                 key={index}
@@ -42,12 +42,23 @@ export function Testimonials() {
                 transition={{ duration: 0.35 }}
                 className="relative text-center"
               >
-                <p className="text-lg text-zinc-700 italic sm:text-xl dark:text-zinc-300">
-                  “{t.quote}”
-                </p>
-                <footer className="mt-6">
-                  <p className="font-semibold text-zinc-900 dark:text-white">{t.name}</p>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">{t.role}</p>
+                <div
+                  className="flex items-center justify-center gap-1"
+                  aria-label="5 out of 5 stars"
+                >
+                  {Array.from({ length: 5 }, (_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="mt-5 text-lg text-white/80 italic sm:text-xl">“{t.quote}”</p>
+                <footer className="mt-6 flex items-center justify-center gap-3">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brand-500/15 font-display font-bold text-brand-400">
+                    {t.name.charAt(0)}
+                  </span>
+                  <span className="text-left">
+                    <p className="font-bold text-white">{t.name}</p>
+                    <p className="text-sm text-white/50">{t.role}</p>
+                  </span>
                 </footer>
               </motion.blockquote>
             </AnimatePresence>
@@ -71,8 +82,8 @@ export function Testimonials() {
                   aria-label={`Show testimonial ${i + 1}`}
                   onClick={() => setIndex(i)}
                   className={cn(
-                    'h-2 rounded-full transition-all',
-                    i === index ? 'w-6 bg-brand-500' : 'w-2 bg-zinc-300 dark:bg-zinc-700',
+                    'h-2 cursor-pointer rounded-full transition-all',
+                    i === index ? 'w-6 bg-brand-500' : 'w-2 bg-white/20',
                   )}
                 />
               ))}
