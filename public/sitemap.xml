@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ganeshchaudaki.dev/</loc><priority>1.0</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/about</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/skills</loc><priority>0.7</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/experience</loc><priority>0.7</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects</loc><priority>0.9</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/isp-cable-management-system</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/universal-cms</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/hoteleye-ai</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/aitaxmd</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/inndesignai</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/quantum-sentiment-analysis</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/whatsapp-backup-migration</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/suregain-gpt</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/expense-tracker</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/projects/saffron-and-spice</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/services</loc><priority>0.8</priority></url>
-  <url><loc>https://ganeshchaudaki.dev/contact</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/</loc><priority>1.0</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/about</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/skills</loc><priority>0.7</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/experience</loc><priority>0.7</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects</loc><priority>0.9</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/isp-cable-management-system</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/universal-cms</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/hoteleye-ai</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/aitaxmd</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/inndesignai</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/quantum-sentiment-analysis</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/whatsapp-backup-migration</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/suregain-gpt</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/expense-tracker</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/projects/saffron-and-spice</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/services</loc><priority>0.8</priority></url>
+  <url><loc>https://portfolio-red-five-42.vercel.app/contact</loc><priority>0.8</priority></url>
 </urlset>

@@ -1,4 +1,4 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://ganeshchaudaki.dev/sitemap.xml
+Sitemap: https://portfolio-red-five-42.vercel.app/sitemap.xml
