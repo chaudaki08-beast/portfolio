@@ -49,7 +49,7 @@ export function Navbar() {
           className="font-display text-lg font-bold text-white"
           onClick={() => setOpen(false)}
         >
-          Ganesh<span className="text-brand-500">.dev</span>
+          GaneshChaudaki<span className="text-brand-500">.dev</span>
         </Link>
 
         {/* Desktop links */}

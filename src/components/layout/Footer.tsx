@@ -21,7 +21,7 @@ export function Footer() {
       <div className="container-tight grid gap-10 px-4 py-14 sm:px-6 md:grid-cols-3 lg:px-8">
         <div>
           <p className="font-display text-lg font-bold text-zinc-900 dark:text-white">
-            Ganesh<span className="text-gradient">.dev</span>
+            GaneshChaudaki<span className="text-gradient">.dev</span>
           </p>
           <p className="mt-3 max-w-xs text-sm text-zinc-600 dark:text-zinc-400">
             {profile.tagline}
