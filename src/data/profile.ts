@@ -11,7 +11,7 @@ export const profile = {
   github: 'https://github.com/chaudaki08-beast',
   linkedin: 'https://www.linkedin.com/in/ganesh-chaudaki',
   resumeUrl: '/resume.pdf',
-  siteUrl: 'https://portfolio-red-five-42.vercel.app',
+  siteUrl: 'https://ganeshchaudaki.vercel.app',
   currentlyBuilding: [
     {
       title: 'HotelEye AI',
