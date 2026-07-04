@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card'
 import { profile } from '@/data/profile'
 import { experience, education } from '@/data/experience'
 import { skillCategories } from '@/data/skills'
+import headshot from '@/assets/headshot.jpg'
 
 export default function About() {
   return (
@@ -57,13 +58,14 @@ export default function About() {
           <Reveal delay={0.15}>
             <Card>
               <CardContent className="p-6">
-                <div
-                  role="img"
-                  aria-label="Professional headshot placeholder"
-                  className="mx-auto flex h-40 w-40 items-center justify-center rounded-full bg-gradient-to-br from-brand-600 to-accent-500 shadow-xl shadow-brand-500/25"
-                >
-                  <span className="font-display text-5xl font-bold text-white">GC</span>
-                </div>
+                <img
+                  src={headshot}
+                  alt="Ganesh Chaudaki"
+                  className="mx-auto h-40 w-40 rounded-full object-cover shadow-xl shadow-brand-500/25"
+                  width={640}
+                  height={640}
+                  loading="lazy"
+                />
                 <dl className="mt-6 space-y-3 text-sm">
                   <div className="flex items-center gap-3">
                     <MapPin className="h-4 w-4 text-brand-500" />

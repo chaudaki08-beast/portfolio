@@ -6,6 +6,7 @@ import { profile, stats } from '@/data/profile'
 import { heroTech } from '@/data/skills'
 import { AnimatedCounter } from '@/components/AnimatedCounter'
 import { Button } from '@/components/ui/button'
+import headshot from '@/assets/headshot.jpg'
 
 const container = {
   hidden: {},
@@ -134,13 +135,15 @@ export function Hero() {
                 aria-hidden="true"
                 className="absolute -inset-2.5 animate-spin-slow rounded-full border-[1.5px] border-dashed border-brand-500/40"
               />
-              <div
-                role="img"
-                aria-label="Professional headshot placeholder for Ganesh Chaudaki"
-                className="relative z-10 flex h-full w-full items-center justify-center overflow-hidden rounded-full border-2 border-white/15 bg-gradient-to-br from-brand-600 via-brand-500 to-brand-800"
-              >
-                {/* Replace with <img src="/headshot.jpg" alt="Ganesh Chaudaki" className="h-full w-full object-cover" /> */}
-                <span className="font-display text-6xl font-extrabold text-white/95">GC</span>
+              <div className="relative z-10 h-full w-full overflow-hidden rounded-full border-2 border-white/15">
+                <img
+                  src={headshot}
+                  alt="Ganesh Chaudaki"
+                  className="h-full w-full object-cover"
+                  width={640}
+                  height={640}
+                  fetchPriority="high"
+                />
               </div>
             </div>
 

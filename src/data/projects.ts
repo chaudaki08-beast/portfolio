@@ -65,10 +65,11 @@ export const projects: Project[] = [
   },
   {
     slug: 'universal-cms',
-    title: 'Universal CMS',
-    tagline: 'A cPanel-ready website builder for any niche.',
+    title: 'Universal CMS — Website Builder Platform',
+    tagline:
+      'A cPanel-ready website builder with drag-and-drop editing, live theming, and built-in blog, e-commerce & SEO.',
     description:
-      'A website builder built with PHP 8 and MySQL that lets users create sites for any niche using drag-and-drop editing, live themes, blog management, e-commerce modules, and built-in SEO tools. Designed to deploy on ordinary shared hosting — upload, install, and start building.',
+      'A cPanel-ready website builder (PHP 8 & MySQL) with drag-and-drop editing, live theming, and built-in blog, e-commerce & SEO — build sites for any niche, no code required. Designed to deploy on ordinary shared hosting: upload, install, and start building.',
     category: ['Web', 'SaaS'],
     features: [
       'Drag-and-drop page editing with live preview',
@@ -88,6 +89,8 @@ export const projects: Project[] = [
     stack: ['PHP 8', 'MySQL', 'JavaScript', 'Bootstrap'],
     icon: LayoutTemplate,
     gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+    github: 'https://github.com/chaudaki08-beast/universal-cms',
+    liveDemo: 'https://wp.hexabiz.com/ganesh/cms/',
     featured: true,
   },
   {
