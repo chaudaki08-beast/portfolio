@@ -6,7 +6,6 @@ import {
   Landmark,
   Sofa,
   Atom,
-  Smartphone,
   Bot,
   Wallet,
   UtensilsCrossed,
@@ -200,35 +199,6 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'whatsapp-backup-migration',
-    title: 'WhatsApp Backup & Migration Tool',
-    tagline: 'Windows desktop app for WhatsApp backup and iPhone ↔ Android migration.',
-    description:
-      'A Windows desktop application built with .NET 9 and WPF for secure WhatsApp backup and migration between iPhone and Android devices. Talks to real devices over USB, decrypts backups, and translates chat databases between platform schemas.',
-    category: ['Desktop'],
-    features: [
-      'Real USB device communication',
-      'Encrypted backup decryption',
-      'Backup management with versioning',
-      'SQLite chat database processing',
-      'iOS ↔ Android schema translation',
-      'Automatic device detection',
-      'Recovery tools for corrupted backups',
-    ],
-    challenges: [
-      'Reverse-engineered the differences between iOS and Android WhatsApp database schemas to translate chats losslessly.',
-      'Implemented reliable USB device communication across driver and OS variations.',
-      'Processed multi-gigabyte SQLite databases without freezing the WPF UI, using fully async pipelines.',
-    ],
-    architecture:
-      'Modular .NET 9 WPF application: a core contracts layer defines device, backup, and migration interfaces; platform-specific modules implement iOS and Android device I/O; and a translation engine maps between chat schemas. All long operations run off the UI thread with progress reporting.',
-    stack: ['.NET 9', 'C#', 'WPF', 'SQLite'],
-    icon: Smartphone,
-    gradient: 'from-green-500 via-emerald-500 to-teal-600',
-    note: 'Cross-platform chat migration is experimental and currently under development.',
-    featured: true,
-  },
-  {
     slug: 'suregain-gpt',
     title: 'SureGain GPT',
     tagline: 'AI-powered assistant for business workflows.',
@@ -305,14 +275,9 @@ export const projects: Project[] = [
   },
 ]
 
-export const projectCategories: ProjectCategory[] = [
-  'Enterprise',
-  'SaaS',
-  'AI',
-  'Desktop',
-  'Quantum',
-  'Web',
-]
+// 'Desktop' stays in the type but is omitted here — no desktop projects are
+// currently listed, so the filter button would show an empty grid.
+export const projectCategories: ProjectCategory[] = ['Enterprise', 'SaaS', 'AI', 'Quantum', 'Web']
 
 export function getProject(slug: string) {
   return projects.find((p) => p.slug === slug)

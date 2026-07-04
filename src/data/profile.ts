@@ -19,11 +19,6 @@ export const profile = {
         'AI-powered CCTV operations monitoring for hotels — Gemini Vision analysis with real-time WhatsApp and email alerts.',
     },
     {
-      title: 'WhatsApp Backup & Migration Tool',
-      description:
-        'A .NET 9 WPF desktop app for secure WhatsApp backup and cross-platform migration between iPhone and Android.',
-    },
-    {
       title: 'ISP TMS',
       description:
         'A full CRM, billing, and operations platform for internet service providers, built on Next.js 15 and Supabase.',
