@@ -19,7 +19,7 @@ const item = {
 
 export function Hero() {
   return (
-    <section className="relative section-pad">
+    <section className="relative px-4 pt-6 pb-20 sm:px-6 md:pt-10 md:pb-28 lg:px-8">
       <motion.div
         variants={container}
         initial="hidden"
@@ -27,7 +27,7 @@ export function Hero() {
         className="container-tight grid items-start gap-12 lg:grid-cols-[1.25fr_0.75fr]"
       >
         {/* Left: intro */}
-        <div className="pt-6 lg:pt-14">
+        <div>
           <motion.p
             variants={item}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-sm font-medium text-white/80"
@@ -119,8 +119,8 @@ export function Hero() {
         </div>
 
         {/* Right: profile card */}
-        <motion.aside variants={item} className="mx-auto w-full max-w-[420px] lg:sticky lg:top-24">
-          <div className="relative overflow-hidden rounded-[30px] border border-white/25 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-7 shadow-2xl shadow-black/50">
+        <motion.aside variants={item} className="mx-auto w-full max-w-[400px] lg:sticky lg:top-20">
+          <div className="relative overflow-hidden rounded-[30px] border border-white/25 bg-gradient-to-b from-white/[0.06] to-white/[0.015] p-6 shadow-2xl shadow-black/50">
             {/* Top row */}
             <div className="flex items-start justify-between">
               <span className="font-display text-sm font-bold text-brand-500">GC</span>
@@ -130,7 +130,7 @@ export function Hero() {
             </div>
 
             {/* Avatar with spinning ring */}
-            <div className="relative mx-auto mt-6 aspect-square w-full max-w-[240px]">
+            <div className="relative mx-auto mt-5 aspect-square w-full max-w-[185px]">
               <div
                 aria-hidden="true"
                 className="absolute -inset-2.5 animate-spin-slow rounded-full border-[1.5px] border-dashed border-brand-500/40"
@@ -148,7 +148,7 @@ export function Hero() {
             </div>
 
             {/* Info */}
-            <div className="mt-6 space-y-2.5 text-center">
+            <div className="mt-5 space-y-2 text-center">
               <p className="font-display text-xl font-bold text-white">{profile.name}</p>
               <p className="flex items-center justify-center gap-2 text-sm text-white/60">
                 <Mail className="h-4 w-4 text-brand-500" /> {profile.email}
@@ -165,7 +165,7 @@ export function Hero() {
             </div>
 
             {/* Socials */}
-            <div className="mt-5 flex items-center justify-center gap-3">
+            <div className="mt-4 flex items-center justify-center gap-3">
               <a
                 href={profile.github}
                 target="_blank"
@@ -187,10 +187,8 @@ export function Hero() {
             </div>
 
             {/* Hire me */}
-            <Link to="/contact" className="mt-6 block">
-              <Button className="w-full" size="lg">
-                Hire Me
-              </Button>
+            <Link to="/contact" className="mt-4 block">
+              <Button className="w-full">Hire Me</Button>
             </Link>
           </div>
         </motion.aside>
