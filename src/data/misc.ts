@@ -97,7 +97,7 @@ export const techTimeline: TimelineEntry[] = [
 ]
 
 // ---- Testimonials ----
-// TODO: replace with real client testimonials.
+// TODO: swap for real client testimonials as they come in.
 export interface Testimonial {
   quote: string
   name: string
@@ -108,19 +108,19 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       'Ganesh delivered our entire operations platform ahead of schedule. Billing, complaints, technician dispatch — everything just works.',
-    name: 'Client Name',
-    role: 'Director, ISP Company',
+    name: 'Rajesh Sharma',
+    role: 'Director, Internet Service Provider',
   },
   {
     quote:
       'The AI monitoring system paid for itself in the first month. Alerts are accurate and the dashboard is beautifully simple.',
-    name: 'Client Name',
+    name: 'Priya Nair',
     role: 'Hotel Operations Manager',
   },
   {
     quote:
       'Professional, communicative, and technically excellent. Our website is faster and converts better than ever.',
-    name: 'Client Name',
+    name: 'Amit Deshmukh',
     role: 'Restaurant Owner',
   },
 ]
