@@ -4,21 +4,36 @@ import { cn } from '@/lib/utils'
 interface ProjectVisualProps {
   project: Project
   className?: string
-  /** Visual variation for gallery tiles */
+  /** Visual variation for gradient gallery tiles */
   variant?: 0 | 1 | 2
   /** Render inside a laptop mockup frame (reference-site style) */
   laptop?: boolean
+  /** Real screenshot URL; falls back to the gradient tile when absent */
+  image?: string
 }
 
 /**
  * Project preview. With `laptop`, renders a laptop mockup (browser bar, screen,
- * base with notch); otherwise a plain gradient tile. Swap the gradient screen
- * for real screenshots by replacing the inner div with an <img>.
+ * base with notch). Shows a real screenshot when `image` is provided, otherwise
+ * a branded gradient tile.
  */
-export function ProjectVisual({ project, className, variant = 0, laptop = false }: ProjectVisualProps) {
+export function ProjectVisual({
+  project,
+  className,
+  variant = 0,
+  laptop = false,
+  image,
+}: ProjectVisualProps) {
   const Icon = project.icon
 
-  const screen = (
+  const screen = image ? (
+    <img
+      src={image}
+      alt={`${project.title} screenshot`}
+      loading="lazy"
+      className="h-full w-full object-cover object-top"
+    />
+  ) : (
     <div
       className={cn(
         'relative flex h-full w-full items-center justify-center overflow-hidden bg-gradient-to-br',
@@ -47,8 +62,8 @@ export function ProjectVisual({ project, className, variant = 0, laptop = false 
   if (!laptop) {
     return (
       <div
-        role="img"
-        aria-label={`${project.title} preview`}
+        role={image ? undefined : 'img'}
+        aria-label={image ? undefined : `${project.title} preview`}
         className={cn('relative overflow-hidden rounded-xl', className)}
       >
         {screen}
@@ -57,7 +72,7 @@ export function ProjectVisual({ project, className, variant = 0, laptop = false 
   }
 
   return (
-    <div role="img" aria-label={`${project.title} preview`} className={cn('w-full', className)}>
+    <div className={cn('w-full', className)}>
       {/* Screen */}
       <div className="overflow-hidden rounded-t-[18px] rounded-b-lg border-2 border-white/10 bg-[#151515] shadow-[0_24px_70px_rgba(0,0,0,0.48),0_0_0_1px_rgba(255,24,78,0.12)] transition-all duration-300 group-hover:-translate-y-1.5 group-hover:border-brand-500/40 group-hover:shadow-[0_32px_90px_rgba(0,0,0,0.58),0_0_40px_rgba(255,24,78,0.12)]">
         {/* Browser bar */}
@@ -66,7 +81,7 @@ export function ProjectVisual({ project, className, variant = 0, laptop = false 
           <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
           <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
           <span className="ml-3 hidden flex-1 truncate rounded-md bg-white/5 px-3 py-0.5 text-[10px] text-white/40 sm:block">
-            {project.slug}.app
+            {project.liveDemo ? project.liveDemo.replace(/^https?:\/\//, '') : `${project.slug}.app`}
           </span>
         </div>
         {/* Display */}

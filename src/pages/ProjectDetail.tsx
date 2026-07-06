@@ -67,11 +67,24 @@ export default function ProjectDetail() {
 
           {/* Preview + gallery */}
           <Reveal delay={0.1} className="group mt-10">
-            <ProjectVisual project={project} laptop />
+            <ProjectVisual project={project} laptop image={project.images?.[0]} />
             <div className="mt-6 grid grid-cols-3 gap-3">
-              <ProjectVisual project={project} variant={1} className="aspect-video" />
-              <ProjectVisual project={project} variant={2} className="aspect-video" />
-              <ProjectVisual project={project} variant={1} className="aspect-video" />
+              {project.images && project.images.length > 1 ? (
+                project.images.map((img) => (
+                  <ProjectVisual
+                    key={img}
+                    project={project}
+                    image={img}
+                    className="aspect-video border border-white/10"
+                  />
+                ))
+              ) : (
+                <>
+                  <ProjectVisual project={project} variant={1} className="aspect-video" />
+                  <ProjectVisual project={project} variant={2} className="aspect-video" />
+                  <ProjectVisual project={project} variant={1} className="aspect-video" />
+                </>
+              )}
             </div>
           </Reveal>
 

@@ -40,7 +40,7 @@ export default function Projects() {
           <SectionHeading
             eyebrow="Portfolio"
             title="Featured projects"
-            description="Ten production builds across enterprise, AI, desktop, and quantum."
+            description="Production builds across enterprise SaaS, AI, web, and quantum computing."
           />
 
           {/* Search + filter */}

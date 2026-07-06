@@ -8,7 +8,7 @@ export function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="group flex h-full flex-col">
       <Link to={`/projects/${project.slug}`} aria-label={`View ${project.title} case study`}>
-        <ProjectVisual project={project} laptop />
+        <ProjectVisual project={project} laptop image={project.images?.[0]} />
       </Link>
       <div className="flex flex-1 flex-col px-1 pt-5">
         <p className="mb-1.5 text-[11px] font-bold tracking-[0.18em] text-brand-500 uppercase">

@@ -10,6 +10,9 @@ import {
   Wallet,
   UtensilsCrossed,
 } from 'lucide-react'
+import quantumHome from '@/assets/projects/quantum/01-home.jpg'
+import quantumText from '@/assets/projects/quantum/02-text-analysis.jpg'
+import quantumHotel from '@/assets/projects/quantum/03-hotel-analysis.jpg'
 
 export type ProjectCategory = 'Enterprise' | 'SaaS' | 'AI' | 'Desktop' | 'Quantum' | 'Web'
 
@@ -25,7 +28,8 @@ export interface Project {
   stack: string[]
   icon: LucideIcon
   gradient: string
-  // TODO: replace with real URLs where available
+  /** Real screenshots; first one is the main preview. Gradient tile is the fallback. */
+  images?: string[]
   github?: string
   liveDemo?: string
   note?: string
@@ -199,6 +203,9 @@ export const projects: Project[] = [
     stack: ['Python', 'Flask', 'Qiskit', 'Google Places API'],
     icon: Atom,
     gradient: 'from-cyan-500 via-sky-500 to-blue-600',
+    images: [quantumHome, quantumHotel, quantumText],
+    github: 'https://github.com/chaudaki08-beast/Quantum',
+    liveDemo: 'https://ganeshcyberweb-quantum-sentiment.hf.space',
     featured: true,
   },
   {
