@@ -13,6 +13,9 @@ import {
 import quantumHome from '@/assets/projects/quantum/01-home.jpg'
 import quantumText from '@/assets/projects/quantum/02-text-analysis.jpg'
 import quantumHotel from '@/assets/projects/quantum/03-hotel-analysis.jpg'
+import cmsHome from '@/assets/projects/cms/01-cms-live-homepage.jpg'
+import cmsAdmin from '@/assets/projects/cms/02-cms-admin-login.jpg'
+import cmsSource from '@/assets/projects/cms/03-cms-github-source.jpg'
 
 export type ProjectCategory = 'Enterprise' | 'SaaS' | 'AI' | 'Desktop' | 'Quantum' | 'Web'
 
@@ -93,6 +96,7 @@ export const projects: Project[] = [
     stack: ['PHP 8', 'MySQL', 'JavaScript', 'Bootstrap'],
     icon: LayoutTemplate,
     gradient: 'from-emerald-500 via-teal-500 to-cyan-500',
+    images: [cmsHome, cmsAdmin, cmsSource],
     github: 'https://github.com/chaudaki08-beast/universal-cms',
     liveDemo: 'https://wp.hexabiz.com/ganesh/cms/',
     featured: true,
